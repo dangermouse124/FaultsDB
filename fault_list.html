@@ -1,0 +1,67 @@
+<html>
+  <head>
+ <style>
+.btn {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+	border-radius: 12px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: orange !important;
+}
+
+</style>
+	<title>FaultsDB</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body>
+	<div class="w3-container"> 
+		<h1 class="w3-container w3-center w3-light-grey">FaultsDB</h1>
+		<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
+			<h2 id="sitename"></h2>
+		</div>
+		<br>
+	</div>
+
+	<div class="w3-container"> 
+		<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
+			<p>Faults listed below.</p>
+			
+			<table class="w3-table">
+			<tr>
+			  <th>Fault Number</th>
+			  <th>Site</th>
+			  <th>Start Date</th>
+			  <th>RTS</th>
+			  <th>Logged by</th>
+			  <th>Assigned to</th>
+			  <th>Description</th>
+			  <th></th>
+			</tr>
+			</table>
+			<br><br>
+			<button class="btn" onclick="showstuff()"><i class="fa fa-thumbs-o-down"></i> New Fault</button>
+			<br><br>
+		</div>
+	</div>
+	
+  </body>
+</html>
+
+
+
+
+
+
