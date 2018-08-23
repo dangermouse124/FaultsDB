@@ -10,6 +10,18 @@ if (!$conn) {
 }
 echo "Connected!<br>";
 
+
+if (!isset($_POST['site_num']) || $_POST['site_num'] == 0) {
+	include(error_page.html);
+	exit();
+}
+
+if (!isset($_POST['site_name']) || $_POST['site_name'] == '') {
+	include(error_page.html);
+	exit();
+}
+
+
 $name1 = 'INSERT INTO sites (';
 $value1 = ' VALUES (';
 //escapes special characters and builds sql query with POST data
