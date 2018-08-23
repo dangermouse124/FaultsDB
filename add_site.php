@@ -3,14 +3,14 @@
 require_once('faultLogin.php');
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($host, $user, $pass, $db);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 echo "Connected!<br>";
 
-$name1 = 'INSERT INTO faults (';
+$name1 = 'INSERT INTO sites (';
 $value1 = ' VALUES (';
 //escapes special characters and builds sql query with POST data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
