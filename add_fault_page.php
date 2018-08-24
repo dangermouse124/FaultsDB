@@ -28,6 +28,15 @@
 </script>
 </head>
 <body>
+ <!-- topbar -->
+<div class="w3-bar w3-grey w3-xlarge">
+	<a href="fault_list.php" title="Home" class="w3-bar-item w3-button w3-blue">
+	<i class="fa fa-home"></i></a>
+	<a href="add_fault_page.php" title="Add a Fault" class="w3-bar-item w3-button">
+	<i class="fa fa-ambulance"></i></a>
+	<a href="add_site.html" title="Add a Site" class="w3-bar-item w3-button">
+	<i class="fa fa-plus"></i></a>
+</div>
 <div class="w3-container"> 
 	<h1 class="w3-container w3-center w3-light-grey">Add a Fault</h1>
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
@@ -72,7 +81,7 @@
 			<br><br>
 			
 			Expected RTS:
-			<input type="text" name="RTS" id="RTS">
+			<input type="date" name="RTS" id="RTS">
 						
 			Delay Reason:
 			<input type="text" name="delay" id="delay">
