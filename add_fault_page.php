@@ -32,7 +32,7 @@
 	<h1 class="w3-container w3-center w3-light-grey">Add a Fault</h1>
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
 		<form id="faultform" action="add_fault.php" method="POST">	
-			
+			Site Name: 
 			<?php
 			require_once('faultLogin.php');
 			$conn = mysqli_connect($host, $user, $pass, $db);
@@ -49,11 +49,8 @@
 			echo "</select>";
 			mysqli_free_result($result);
 			mysqli_close($conn);
-			?>			
-			
-			Site number:<br>
-			<input type="number" name="site_num" id="site_num">
-			
+			?>		
+						
 			Priority:
 			<select name="priority" id="priority">
 				<option value="Red">Red</option>
