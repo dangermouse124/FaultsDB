@@ -8,16 +8,18 @@ $conn = mysqli_connect($host, $user, $pass, $db);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected!<br>";
+//echo "Connected!<br>";
 
 
-if (!isset($_POST['site_num']) || $_POST['site_num'] == 0) {
-	include(error_page.html);
+if (!isset($_POST['site_num']) || $_POST['site_num'] == 0 || strlen((string)$_POST['site_num'])!= 6) {
+	echo "Invalid site number";
+	include('error_page.html');
 	exit();
 }
 
 if (!isset($_POST['site_name']) || $_POST['site_name'] == '') {
-	include(error_page.html);
+	echo "Invalid site name";
+	include('error_page.html');
 	exit();
 }
 
