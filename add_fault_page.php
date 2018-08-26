@@ -1,27 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	if (isset($_GET['fault_num'])) {
-		echo "Fault#: " . $_GET['fault_num'];
-			
-			require('faultLogin.php');
-			$conn = mysqli_connect($host, $user, $pass, $db);
-			if (!$conn) {
-				die("Connection failed: " . mysqli_connect_error());
-			}
-			$sql = "SELECT * FROM faults WHERE fault_num=" . "'". $_GET['fault_num'] . "'";
-			//echo $sql;
-			$result = mysqli_query($conn, $sql);
-			$fault = mysqli_fetch_array($result,MYSQLI_ASSOC);
-			//foreach ($fault as $key => $value) {
-				//echo $key .":" . $value . "<br>";
-			//}
-			$faultjson = json_encode($fault);
-									
-			mysqli_free_result($result);
-			mysqli_close($conn);
-	}
-}
-?>
 <html>
 <head>
 <style>
@@ -52,23 +28,6 @@ background-color: Lightgrey;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	var jsfault = <?php if (isset($faultjson)) {echo $faultjson;} else {echo "false";}  ?>;
-	if (jsfault) {
-		var data;
-		var key;
-		for (key in jsfault) {
-			data = jsfault[key];
-			if (data) {
-				console.log(key);
-				console.log(data);
-			}
-			if (document.getElementById(key)) {
-				document.getElementById(key).value = data;
-			}
-		}
-	}
-});
 </script>
 </head>
 <body>
@@ -85,7 +44,6 @@ $(document).ready(function(){
 <div class="w3-container"> 
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
 		<h2><font color="black">Add a Fault</font></h2><br>
-		<p id="test"></p>
 		<form id="faultform" action="add_fault.php" method="POST">	
 			Site Name: 
 			<?php

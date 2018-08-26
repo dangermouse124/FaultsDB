@@ -36,8 +36,12 @@ echo $sql;
 
 if (mysqli_query($conn, $sql)) {
 	$returnMsg["message"] = "Successful DB entry!";
+	include('success_page.html');
+	exit();
 } else {
     $returnMsg["message"] = "Error: " . $sql . "<br>" . mysqli_error($conn);
+	include('error_page.html');
+	exit();
 }
 $jsonMsg = json_encode($returnMsg);
 echo $jsonMsg;
