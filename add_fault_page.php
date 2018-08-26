@@ -1,3 +1,27 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	if (isset($_GET['fault_num'])) {
+		echo "Fault#: " . $_GET['fault_num'];
+			
+			require('faultLogin.php');
+			$conn = mysqli_connect($host, $user, $pass, $db);
+			if (!$conn) {
+				die("Connection failed: " . mysqli_connect_error());
+			}
+			$sql = "SELECT * FROM faults WHERE fault_num=" . "'". $_GET['fault_num'] . "'";
+			//echo $sql;
+			$result = mysqli_query($conn, $sql);
+			$fault = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			//foreach ($fault as $key => $value) {
+				//echo $key .":" . $value . "<br>";
+			//}
+			$faultjson = json_encode($fault);
+									
+			mysqli_free_result($result);
+			mysqli_close($conn);
+	}
+}
+?>
 <html>
 <head>
 <style>
@@ -28,28 +52,44 @@ background-color: Lightgrey;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-
+$(document).ready(function(){
+	var jsfault = <?php if (isset($faultjson)) {echo $faultjson;} else {echo "false";}  ?>;
+	if (jsfault) {
+		var data;
+		var key;
+		for (key in jsfault) {
+			data = jsfault[key];
+			if (data) {
+				console.log(key);
+				console.log(data);
+			}
+			if (document.getElementById(key)) {
+				document.getElementById(key).value = data;
+			}
+		}
+	}
+});
 </script>
 </head>
 <body>
  <!-- topbar -->
 <div class="w3-bar w3-grey w3-xlarge">
 	<a href="fault_home.html" title="Home" class="w3-bar-item w3-button w3-blue">
-	<i class="fa fa-home"></i></a>
+	<i class="fa fa-home"> Home</i></a>
 	<a href="add_fault_page.php" title="Add a Fault" class="w3-bar-item w3-button">
-	<i class="fa fa-ambulance"></i></a>
+	<i class="fa fa-ambulance"> Add Fault</i></a>
 	<a href="add_site.html" title="Add a Site" class="w3-bar-item w3-button">
-	<i class="fa fa-plus"></i></a>
+	<i class="fa fa-plus"> Add Site</i></a>
 </div><br>
 
 <div class="w3-container"> 
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
 		<h2><font color="black">Add a Fault</font></h2><br>
+		<p id="test"></p>
 		<form id="faultform" action="add_fault.php" method="POST">	
 			Site Name: 
 			<?php
-			require_once('faultLogin.php');
+			require('faultLogin.php');
 			$conn = mysqli_connect($host, $user, $pass, $db);
 			if (!$conn) {
 				die("Connection failed: " . mysqli_connect_error());
@@ -57,7 +97,7 @@ background-color: Lightgrey;
 			$sql = "SELECT site_name FROM sites";
 			$result = mysqli_query($conn, $sql);
 
-			echo "<select name='site_name'>";
+			echo "<select id='site_name' name='site_name'>";
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 				echo "<option value='" . $row['site_name'] . "'>" . $row['site_name'] . "</option>";
 			}
@@ -73,8 +113,7 @@ background-color: Lightgrey;
 				<option value="Yellow">Yellow</option>
 				<option value="Grey">Grey</option>
 			</select>
-			<br><br>
-			
+						
 			Equipment:
 			<input type="text" name="equipment" id="equipment">
 			

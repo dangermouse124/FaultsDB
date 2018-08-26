@@ -2,7 +2,7 @@
 <head>
 <style>
 body {
-    background-color: rgba(175, 187, 255, 0.6);
+    background-color: silver;
 }
 th, td {
 	padding: 8px;
@@ -44,12 +44,11 @@ tr:hover {background-color:#A9CCE3;}
 			$result = mysqli_query($conn, $sql);
 
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-				//$prority = "<tr bgcolor='" . $row['priority'] . "'>";
-				$prority = "<td bgcolor='" . $row['priority'] . "'>";
+				$priority = "<td bgcolor='" . $row['priority'] . "'>";
+				$link = "<a href=" . '"' . "add_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				echo "<tr>";
-				//echo $prority;
-				//echo "<td>" . $row['fault_num'] . "</td>";
-				echo $prority . $row['fault_num'] . "</td>";
+				echo $priority . $link . $row['fault_num'] . "</a>" . "</td>";
+				//echo $priority . $row['fault_num'] . "</td>";
 				echo "<td>" . $row['site_name'] . "</td>";
 				echo "<td>" . $row['equipment'] . "</td>";
 				echo "<td>" . $row['RTS'] . "</td>";
