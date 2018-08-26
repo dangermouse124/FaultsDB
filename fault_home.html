@@ -1,6 +1,11 @@
 <html>
   <head>
  <style>
+h2 {
+text-align: center;
+background-color: Lightgrey;
+}
+
 .btn {
     background-color: black;
     border: none;
@@ -23,6 +28,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+	var x = document.getElementById("fault_frame");
+	if (x.contentDocument) {								//Checks if the frame is empty and submits default if it is
+		$("#query_form").submit();
+	}
+});
 </script>
 </head>
 <body>
@@ -34,12 +45,11 @@
 	<i class="fa fa-ambulance"></i></a>
 	<a href="add_site.html" title="Add a Site" class="w3-bar-item w3-button">
 	<i class="fa fa-plus"></i></a>
-</div>
+</div><br>
+
 <div class="w3-container"> 
-	<h1 class="w3-container w3-center w3-light-grey">FaultsDB</h1>
-</div>
-<div class="w3-container"> 
-	<div class="w3-card-4 w3-padding">
+	<div class="w3-card-4 w3-dark-grey w3-padding">
+	<h2><font color="black">Faults DB</font></h2>
 		<form id="query_form" action="get_faults_sort.php" target="fault_frame" method="POST">
 			<br>
 			Sort by:
@@ -61,14 +71,13 @@
 			<br>
 
 			<div class="w3-container w3-margin w3-text-orange">
-			<h2>Get Faults</h2>
-			<input type="submit" value="Submit">
+			<button class="btn" type="submit"><i class="fa fa-cogs"></i> Get Faults</button>
 			</div>
 		</form>	
 	</div><br>
 </div>
 <div class="w3-card-4">
-	<iframe name="fault_frame" height="1400px" width="100%"></iframe>
+	<iframe name="fault_frame" id="fault_frame" height="1400px" width="100%"></iframe>
 </div>
 	
   </body>

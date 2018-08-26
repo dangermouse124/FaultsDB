@@ -1,6 +1,11 @@
 <html>
 <head>
 <style>
+h2 {
+text-align: center;
+background-color: Lightgrey;
+}
+
 .btn {
     background-color: black;
     border: none;
@@ -36,10 +41,11 @@
 	<i class="fa fa-ambulance"></i></a>
 	<a href="add_site.html" title="Add a Site" class="w3-bar-item w3-button">
 	<i class="fa fa-plus"></i></a>
-</div>
+</div><br>
+
 <div class="w3-container"> 
-	<h1 class="w3-container w3-center w3-light-grey">Add a Fault</h1>
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
+		<h2><font color="black">Add a Fault</font></h2><br>
 		<form id="faultform" action="add_fault.php" method="POST">	
 			Site Name: 
 			<?php
@@ -69,6 +75,15 @@
 			</select>
 			<br><br>
 			
+			Equipment:
+			<input type="text" name="equipment" id="equipment">
+			
+			Status:
+			<select name="status" id="status">
+				<option value="Active">Active</option>
+				<option value="Cleared">Cleared</option>
+			</select><br><br>
+			
 			Description of fault:<br>
 			<textarea rows="4" cols="50" id="description" name="description"></textarea>
 			<br><br>
@@ -91,8 +106,7 @@
 			<textarea rows="4" cols="50" id="comment" name="comment"></textarea>
 
 			<div class="w3-container w3-margin w3-text-orange">
-			<h2>Check and submit</h2>
-			<input type="submit" value="Submit">
+			<button class="btn" type="submit"><i class="fa fa-plus"></i> Add Fault</button>
 			</div>
 			<br>
 		</form>	

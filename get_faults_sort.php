@@ -1,5 +1,16 @@
 <html>
 <head>
+<style>
+body {
+    background-color: rgba(175, 187, 255, 0.6);
+}
+th, td {
+	padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#A9CCE3;}
+</style>
 <title>Faults List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -7,17 +18,18 @@
 </head>
 <body>
 	<div class="w3-container"><br>
-		<div class="w3-card-4 w3-dark-grey w3-padding">
+		<div class="w3-card-4 w3-light-grey w3-padding">
 			
 			<table id="faultTable" class="w3-table">
 			<tr>
 			  <th>Fault#</th>
 			  <th>Site</th>
-			  <th>Start Date</th>
+			  <th>Equipment</th>
 			  <th>RTS</th>
 			  <th>Logged by</th>
 			  <th>Assigned to</th>
-			  <th>Description</th>
+			  <th width="20%">Description</th>
+			  <th>Status</th>
 			</tr>
 			<?php
 			require_once('faultLogin.php');
@@ -32,15 +44,19 @@
 			$result = mysqli_query($conn, $sql);
 
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-				$prority = "<tr bgcolor='" . $row['priority'] . "'>";
-				echo $prority;
-				echo "<td>" . $row['fault_num'] . "</td>";
+				//$prority = "<tr bgcolor='" . $row['priority'] . "'>";
+				$prority = "<td bgcolor='" . $row['priority'] . "'>";
+				echo "<tr>";
+				//echo $prority;
+				//echo "<td>" . $row['fault_num'] . "</td>";
+				echo $prority . $row['fault_num'] . "</td>";
 				echo "<td>" . $row['site_name'] . "</td>";
-				echo "<td>" . $row['date_reported'] . "</td>";
+				echo "<td>" . $row['equipment'] . "</td>";
 				echo "<td>" . $row['RTS'] . "</td>";
 				echo "<td>" . $row['reported_by'] . "</td>";
 				echo "<td>" . $row['assigned_to'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
+				echo "<td>" . $row['status'] . "</td>";
 				echo "</tr>";
 			}
 			
