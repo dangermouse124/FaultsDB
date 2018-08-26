@@ -45,7 +45,7 @@ tr:hover {background-color:#A9CCE3;}
 
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 				$priority = "<td bgcolor='" . $row['priority'] . "'>";
-				$link = "<a href=" . '"' . "add_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
+				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				echo "<tr>";
 				echo $priority . $link . $row['fault_num'] . "</a>" . "</td>";
 				//echo $priority . $row['fault_num'] . "</td>";
