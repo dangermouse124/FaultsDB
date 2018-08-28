@@ -37,14 +37,18 @@ tr:hover {background-color:#A9CCE3;}
 			if (!$conn) {
 				die("Connection failed: " . mysqli_connect_error());
 			}
-
-			$sql = "SELECT * FROM faults ORDER BY " . $_POST["column"] . " " . $_POST["acdc"];
+			
+			if (isset($_POST['show_cleared'])) {
+				$sql = "SELECT * FROM faults ORDER BY " . $_POST["column"] . " " . $_POST["acdc"];
+			} else {
+				$sql = "SELECT * FROM faults WHERE status='Active' ORDER BY " . $_POST["column"] . " " . $_POST["acdc"];
+			}
 			echo $sql;
 			
 			$result = mysqli_query($conn, $sql);
 
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-				$priority = "<td bgcolor='" . $row['priority'] . "'>";
+				$priority = "<td class='" . $row['priority'] . "'>";
 				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				if ($row['RTS'] == "0000-00-00") {$RTS = "";} else {$RTS = $row['RTS'];}
 				echo "<tr>";
