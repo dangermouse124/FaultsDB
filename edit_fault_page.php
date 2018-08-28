@@ -129,10 +129,10 @@ $(document).ready(function(){
 						
 			Priority:
 			<select name="priority" id="priority">
-				<option value="Red">Red</option>
-				<option value="Orange">Orange</option>
-				<option value="Yellow">Yellow</option>
-				<option value="Grey">Grey</option>
+				<option class="w3-red" value="w3-red">Urgent</option>
+				<option class="w3-orange" value="w3-orange">Under Investigation</option>
+				<option class="w3-purple" value="w3-purple">Unknown</option>
+				<option class="w3-light-green" value="w3-light-green">Testing</option>
 			</select>
 						
 			Equipment:
