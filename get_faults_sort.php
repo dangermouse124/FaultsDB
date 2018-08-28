@@ -10,6 +10,30 @@ th, td {
 }
 
 tr:hover {background-color:#A9CCE3;}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: grey;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 </style>
 <title>Faults List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,16 +72,18 @@ tr:hover {background-color:#A9CCE3;}
 			$result = mysqli_query($conn, $sql);
 
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-				$priority = "<td class='" . $row['priority'] . "'>";
+				
 				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				if ($row['RTS'] == "0000-00-00") {$RTS = "";} else {$RTS = $row['RTS'];}
+				if ($row['priority'] == "w3-red") {$tooltip = "Urgent!";}
+				if ($row['priority'] == "w3-orange") {$tooltip = "Under Investigation";}
+				if ($row['priority'] == "w3-purple") {$tooltip = "Unknown";}
+				if ($row['priority'] == "w3-light-green") {$tooltip = "Testing";}
 				echo "<tr>";
-				echo $priority . $link . $row['fault_num'] . "</a>" . "</td>";
-				//echo $priority . $row['fault_num'] . "</td>";
+				echo "<td class='" . $row['priority'] . "'><a href='edit_fault_page.php?fault_num=" . $row['fault_num'] . "' target='_parent' class='tooltip'>" . $row['fault_num'] . "<span class='tooltiptext'>" . $tooltip . "</span></a></td>";
 				echo "<td>" . $row['site_name'] . "</td>";
 				echo "<td>" . $row['equipment'] . "</td>";
 				echo "<td>" . $RTS . "</td>";
-				//echo "<td>" . $row['RTS'] . "</td>";
 				echo "<td>" . $row['reported_by'] . "</td>";
 				echo "<td>" . $row['assigned_to'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
