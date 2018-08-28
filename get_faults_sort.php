@@ -46,12 +46,14 @@ tr:hover {background-color:#A9CCE3;}
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 				$priority = "<td bgcolor='" . $row['priority'] . "'>";
 				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
+				if ($row['RTS'] == "0000-00-00") {$RTS = "";} else {$RTS = $row['RTS'];}
 				echo "<tr>";
 				echo $priority . $link . $row['fault_num'] . "</a>" . "</td>";
 				//echo $priority . $row['fault_num'] . "</td>";
 				echo "<td>" . $row['site_name'] . "</td>";
 				echo "<td>" . $row['equipment'] . "</td>";
-				echo "<td>" . $row['RTS'] . "</td>";
+				echo "<td>" . $RTS . "</td>";
+				//echo "<td>" . $row['RTS'] . "</td>";
 				echo "<td>" . $row['reported_by'] . "</td>";
 				echo "<td>" . $row['assigned_to'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";

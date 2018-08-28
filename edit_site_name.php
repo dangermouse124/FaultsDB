@@ -53,7 +53,7 @@ background-color: Lightgrey;
 
 <div class="w3-container"> 
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
-		<h2><font color="red">Edit a site name</font></h2>
+		<h2 class="w3-red">Edit a site name</h2>
 		<form id="edit_site_number" action="edit_site.php" method="POST">
 			<br>
 			Site number:

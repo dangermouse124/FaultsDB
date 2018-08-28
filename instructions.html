@@ -1,33 +1,15 @@
 <html>
-<head>
-<style>
-h2 {
-text-align: center;
-background-color: Lightgrey;
-}
-
-.btn {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-	border-radius: 12px;
-}
-
-/* Darker background on mouse-over */
-.btn:hover {
-    background-color: orange !important;
-}
-
+  <head>
+ <style>
 </style>
-<title>Add site</title>
+<title>Instructions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="faults.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+</script>
 </head>
 <body>
  <!-- topbar -->
@@ -52,27 +34,30 @@ background-color: Lightgrey;
 </div><br>
 
 <div class="w3-container"> 
-	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
-		<h2><font color="black">Add a Site</font></h2>
-		<p class="w3-text-orange">Site number must be six digits. Add leading zeros if required</p>
-		<form id="siteform" action="add_site.php" method="POST">
-			<br>
-			Site number:
-			<input type="number" name="site_num" id="site_num">
-			
-			Site name:
-			<input type="text" name="site_name" id="site_name">
-			<br>
-
-			<div class="w3-container w3-margin w3-text-orange">
-			<button class="btn" type="submit"><i class="fa fa-plus"></i> Add Site</button>
-			</div>
-		</form>	
+	<div class="w3-card-4 w3-dark-grey w3-padding">
+		<h1>Instructions:</h1>
+		<p class="w3-grey"><u>Note:</u> This is designed to be more of an electronic whiteboard than a faults database. It should be quick and easy to use as sitesDB entry is still required.</p> 
+		<p>To add a fault the site must already exist. Click on sites &gt; Add site to add a site</p>
+		<p>To edit a fault click on the fault number in the fault# column on the home page</p>
+		<p>To remove a fault edit the fault and set it to cleared</p>
+		<p class="w3-red">Warning! If you edit a site number or name it will cascade through the database.<br>
+		-All faults with this name or number will be updated.</p>
+		<p>Sites can be edited via the sites drop-down</p>
+		<p>If you get the error page it may be that the site number or name already exists</p>
+		<p>Please let me know if you get an error! Maybe add it to faultsDB!</p>
+		<p>Suggestions welcome! (for now..)</p>
+		<br>
 	</div>
-</div> 
-<br>
+	<br>
+</div>
 
-  
-  
 </body>
-</html>
+</html>	
+	
+	
+	
+	
+	
+	
+	
+	
