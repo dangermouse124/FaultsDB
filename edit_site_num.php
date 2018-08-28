@@ -22,14 +22,12 @@ background-color: Lightgrey;
 }
 
 </style>
-<title>Add Fault</title>
+<title>Edit site number</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="faults.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-</script>
 </head>
 <body>
  <!-- topbar -->
@@ -55,9 +53,10 @@ background-color: Lightgrey;
 
 <div class="w3-container"> 
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
-		<h2><font color="black">Add a Fault</font></h2><br>
-		<form id="faultform" action="add_fault.php" method="POST">	
-			Site Name: 
+		<h2><font color="red">Edit a site number</font></h2>
+		<form id="edit_site_number" action="edit_site.php" method="POST">
+			<br>
+			Site name:
 			<?php
 			require('faultLogin.php');
 			$conn = mysqli_connect($host, $user, $pass, $db);
@@ -74,53 +73,21 @@ background-color: Lightgrey;
 			echo "</select>";
 			mysqli_free_result($result);
 			mysqli_close($conn);
-			?>		
-						
-			Priority:
-			<select name="priority" id="priority">
-				<option value="Red">Red</option>
-				<option value="Orange">Orange</option>
-				<option value="Yellow">Yellow</option>
-				<option value="Grey">Grey</option>
-			</select>
-						
-			Equipment:
-			<input type="text" name="equipment" id="equipment">
+			?>			
+
+			Site number:
+			<input type="number" name="site_num" id="site_num">
 			
-			Status:
-			<select name="status" id="status">
-				<option value="Active">Active</option>
-				<option value="Cleared">Cleared</option>
-			</select><br><br>
-			
-			Description of fault:<br>
-			<textarea rows="4" cols="50" id="description" name="description"></textarea>
-			<br><br>
-			
-			Entered by:
-			<input type="text" name="reported_by" id="reported_by">
-						
-			Assigned to:
-			<input type="text" name="assigned_to" id="assigned_to">
-			<br><br>
-			
-			Expected RTS:
-			<input type="date" name="RTS" id="RTS">
-						
-			Delay Reason:
-			<input type="text" name="delay" id="delay">
-			<br><br>
-			
-			Comments:<br>
-			<textarea rows="4" cols="50" id="comment" name="comment"></textarea>
+			<input type="hidden" name="edit_item" id="edit_item" value="site_num">
+
+			<br>
 
 			<div class="w3-container w3-margin w3-text-orange">
-			<button class="btn" type="submit"><i class="fa fa-plus"></i> Add Fault</button>
+			<button class="btn" type="submit"><i class="fa fa-plus"></i> Update Site number</button>
 			</div>
-			<br>
 		</form>	
 	</div>
-</div> 
+</div>
   
   
 </body>
