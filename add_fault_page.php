@@ -76,12 +76,12 @@ background-color: Lightgrey;
 			mysqli_close($conn);
 			?>		
 						
-			Priority:
+			Progress:
 			<select name="priority" id="priority">
 				<option class="w3-red" value="w3-red">New!</option>
-				<option class="w3-orange" value="w3-orange">Planning</option>
-				<option class="w3-light-grey" value="w3-light-grey">Delayed</option>
-				<option class="w3-light-green" value="w3-light-green">Follow Up</option>
+				<option class="w3-orange" value="w3-orange">Planning RTS</option>
+				<option class="w3-light-blue" value="w3-light-blue">Delayed RTS</option>
+				<option class="w3-light-green" value="w3-light-green">Fixed</option>
 			</select>
 						
 			Equipment:
@@ -109,7 +109,7 @@ background-color: Lightgrey;
 			<input type="text" name="reported_by" id="reported_by">
 						
 			Assigned to:
-			<input type="text" name="assigned_to" id="assigned_to">
+			<input type="text" name="assigned_to" id="assigned_to" required>
 			<br><br>
 			
 			Expected RTS:

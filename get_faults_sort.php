@@ -50,7 +50,7 @@ tr:hover {background-color:#A9CCE3;}
 			  <th>Site</th>
 			  <th>Equipment</th>
 			  <th>RTS</th>
-			  <th>Logged by</th>
+			  <th>Delay</th>
 			  <th>Assigned to</th>
 			  <th width="20%">Description</th>
 			  <th>Status</th>
@@ -76,15 +76,15 @@ tr:hover {background-color:#A9CCE3;}
 				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				if ($row['RTS'] == "0000-00-00") {$RTS = "";} else {$RTS = $row['RTS'];}
 				if ($row['priority'] == "w3-red") {$tooltip = "New!";}
-				if ($row['priority'] == "w3-orange") {$tooltip = "Planning";}
-				if ($row['priority'] == "w3-light-grey") {$tooltip = "Delayed";}
-				if ($row['priority'] == "w3-light-green") {$tooltip = "Follow Up";}
+				if ($row['priority'] == "w3-orange") {$tooltip = "Planning RTS";}
+				if ($row['priority'] == "w3-light-blue") {$tooltip = "Delayed RTS";}
+				if ($row['priority'] == "w3-light-green") {$tooltip = "Fixed";}
 				echo "<tr>";
 				echo "<td class='" . $row['priority'] . "'><a href='edit_fault_page.php?fault_num=" . $row['fault_num'] . "' target='_parent' class='tooltip'>" . $row['fault_num'] . "<span class='tooltiptext'>" . $tooltip . "</span></a></td>";
 				echo "<td>" . $row['site_name'] . "</td>";
 				echo "<td>" . $row['equipment'] . "</td>";
 				echo "<td>" . $RTS . "</td>";
-				echo "<td>" . $row['reported_by'] . "</td>";
+				echo "<td>" . $row['delay'] . "</td>";
 				echo "<td>" . $row['assigned_to'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
 				echo "<td>" . $row['status'] . "</td>";
