@@ -39,6 +39,15 @@ tr:hover {background-color:#A9CCE3;}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript">
+
+window.setInterval('refresh()', 120000);
+
+function refresh() {
+        window.location.reload();
+    }
+
+</script>
 </head>
 <body>
 	<div class="w3-container"><br>
