@@ -78,20 +78,28 @@ background-color: Lightgrey;
 						
 			Priority:
 			<select name="priority" id="priority">
-				<option class="w3-red" value="w3-red">Urgent</option>
-				<option class="w3-orange" value="w3-orange">Under Investigation</option>
-				<option class="w3-purple" value="w3-purple">Unknown</option>
-				<option class="w3-light-green" value="w3-light-green">Testing</option>
+				<option class="w3-red" value="w3-red">New!</option>
+				<option class="w3-orange" value="w3-orange">Planning</option>
+				<option class="w3-light-grey" value="w3-light-grey">Delayed</option>
+				<option class="w3-light-green" value="w3-light-green">Follow Up</option>
 			</select>
 						
 			Equipment:
 			<input type="text" name="equipment" id="equipment">
+			<br><br>
 			
 			Status:
 			<select name="status" id="status">
 				<option value="Active">Active</option>
 				<option value="Cleared">Cleared</option>
-			</select><br><br>
+			</select>
+			
+			Entered into sitesDB:
+			<select name="sitesDB" id="sitesDB">
+				<option value="No">No</option>
+				<option value="Yes">Yes</option>
+			</select>
+			<br><br>
 			
 			Description of fault:<br>
 			<textarea rows="4" cols="50" id="description" name="description"></textarea>

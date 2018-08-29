@@ -75,10 +75,10 @@ tr:hover {background-color:#A9CCE3;}
 				
 				$link = "<a href=" . '"' . "edit_fault_page.php?fault_num=" . $row['fault_num'] . '" ' . "target=" . '"' . "_parent" . '"' . ">";
 				if ($row['RTS'] == "0000-00-00") {$RTS = "";} else {$RTS = $row['RTS'];}
-				if ($row['priority'] == "w3-red") {$tooltip = "Urgent!";}
-				if ($row['priority'] == "w3-orange") {$tooltip = "Under Investigation";}
-				if ($row['priority'] == "w3-purple") {$tooltip = "Unknown";}
-				if ($row['priority'] == "w3-light-green") {$tooltip = "Testing";}
+				if ($row['priority'] == "w3-red") {$tooltip = "New!";}
+				if ($row['priority'] == "w3-orange") {$tooltip = "Planning";}
+				if ($row['priority'] == "w3-light-grey") {$tooltip = "Delayed";}
+				if ($row['priority'] == "w3-light-green") {$tooltip = "Follow Up";}
 				echo "<tr>";
 				echo "<td class='" . $row['priority'] . "'><a href='edit_fault_page.php?fault_num=" . $row['fault_num'] . "' target='_parent' class='tooltip'>" . $row['fault_num'] . "<span class='tooltiptext'>" . $tooltip . "</span></a></td>";
 				echo "<td>" . $row['site_name'] . "</td>";

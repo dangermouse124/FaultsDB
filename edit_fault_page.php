@@ -31,7 +31,7 @@ background-color: Lightgrey;
 }
 
 h3 {
-color: black
+color: orange
 }
 
 .btn {
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 <div class="w3-container"> 
 	<div class="w3-card-4 w3-dark-grey w3-padding" style="width:95%">
-		<h2><font color="black">Update a Fault</font></h2><br>
+		<h2><font color="black">Update a Fault</font></h2>
 		<form id="faultform" action="edit_fault.php" method="POST">	
 			<h3>Fault#:<span id="faultnumber"></span></h3>
 			<input name="fault_num" id="fault_num" type="hidden">
@@ -129,20 +129,28 @@ $(document).ready(function(){
 						
 			Priority:
 			<select name="priority" id="priority">
-				<option class="w3-red" value="w3-red">Urgent</option>
-				<option class="w3-orange" value="w3-orange">Under Investigation</option>
-				<option class="w3-purple" value="w3-purple">Unknown</option>
-				<option class="w3-light-green" value="w3-light-green">Testing</option>
+				<option class="w3-red" value="w3-red">New!</option>
+				<option class="w3-orange" value="w3-orange">Planning</option>
+				<option class="w3-light-grey" value="w3-light-grey">Delayed</option>
+				<option class="w3-light-green" value="w3-light-green">Follow Up</option>
 			</select>
 						
 			Equipment:
 			<input type="text" name="equipment" id="equipment">
+			<br><br>
 			
 			Status:
 			<select name="status" id="status">
 				<option value="Active">Active</option>
 				<option value="Cleared">Cleared</option>
-			</select><br><br>
+			</select>
+			
+			Entered into sitesDB:
+			<select name="sitesDB" id="sitesDB">
+				<option value="No">No</option>
+				<option value="Yes">Yes</option>
+			</select>
+			<br><br>
 			
 			Description of fault:<br>
 			<textarea rows="4" cols="50" id="description" name="description"></textarea>
