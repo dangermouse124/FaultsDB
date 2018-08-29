@@ -11,7 +11,7 @@ if (!$conn) {
 //echo "Connected!<br>";
 
 
-if (!isset($_POST['site_num']) || $_POST['site_num'] == 0 || strlen((string)$_POST['site_num'])!= 6) {
+if (!isset($_POST['site_num']) || strlen((string)$_POST['site_num']) < 4 || strlen((string)$_POST['site_num']) > 6) {
 	echo "Invalid site number";
 	include('error_page.html');
 	exit();
