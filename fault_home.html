@@ -30,11 +30,13 @@ background-color: Lightgrey;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	var x = document.getElementById("fault_frame");
-	if (x.contentDocument) {								//Checks if the frame is empty and submits default if it is
-		$("#query_form").submit();
-	}
+    $("#query_form").submit();
 });
+    window.setInterval('refresh()', 120000);
+
+    function refresh() {
+        $("#query_form").submit();
+    }
 </script>
 </head>
 <body>
