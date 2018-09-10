@@ -67,7 +67,7 @@ tr:hover {background-color:#A9CCE3;}
 			if (isset($_POST['show_cleared'])) {
 				$sql = "SELECT * FROM faults ORDER BY " . $_POST["column"] . " " . $_POST["acdc"];
 			} else {
-				$sql = "SELECT * FROM faults WHERE status='Active' ORDER BY " . $_POST["column"] . " " . $_POST["acdc"];
+				$sql = "SELECT * FROM faults WHERE status='Active' ORDER BY " . $_POST["column"] . " " . $_POST["acdc"] . ", site_name";
 			}
 			echo $sql;
 			
