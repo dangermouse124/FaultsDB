@@ -3,7 +3,7 @@
 require_once('faultLogin.php');
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($host, $user, $pass, $db);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
