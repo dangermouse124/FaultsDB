@@ -2,6 +2,7 @@
 
 require_once('faultLogin.php');
 
+
 // Create connection
 $conn = mysqli_connect($host, $user, $pass, $db);
 // Check connection

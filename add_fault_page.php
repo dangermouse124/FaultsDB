@@ -113,7 +113,7 @@ background-color: Lightgrey;
 			<br><br>
 			
 			Expected RTS:
-			<input type="date" name="RTS" id="RTS">
+			<input type="date" name="RTS" id="RTS" required>
 						
 			Delay Reason:
 			<input type="text" name="delay" id="delay">

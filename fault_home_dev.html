@@ -1,0 +1,103 @@
+<html>
+  <head>
+ <style>
+h2 {
+text-align: center;
+background-color: Lightgrey;
+}
+
+.btn {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+	border-radius: 12px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: orange !important;
+}
+
+</style>
+<title>FaultsDB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="faults.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var x = document.getElementById("fault_frame");
+	if (x.contentDocument) {								//Checks if the frame is empty and submits default if it is
+		$("#query_form").submit();
+	}
+});
+</script>
+</head>
+<body>
+ <!-- topbar -->
+<div class="navbar">
+	<a href="fault_home.html" title="Home" class="w3-blue">
+	<i class="fa fa-home"> Home</i></a>
+	<a href="add_fault_page.php" title="Add a Fault">
+	<i class="fa fa-ambulance"> Add Fault</i></a>
+  <div class="dropdown">
+    <button class="dropbtn">Sites 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+	<a href="add_site.html" title="Add a Site">
+	<i class="fa fa-plus"> Add Site</i></a>
+	<a href="edit_site_name.php" title="Add a Site">
+	<i class="fa fa-magic"> Edit Site Name</i></a>
+	<a href="edit_site_num.php" title="Add a Site">
+	<i class="fa fa-magic"> Edit Site Number</i></a>
+    </div>
+  </div> 
+</div>
+<br>
+
+<div class="w3-container"> 
+	<div class="w3-card-4 w3-dark-grey w3-padding">
+	<h2><font color="black">Faults DB</font></h2>
+		<form id="query_form" action="get_faults_sort.php" target="fault_frame" method="POST">
+			<br>
+			Sort by:
+			<select name="column" id="column">
+				<option value="fault_num">Fault#</option>
+				<option value="site_name">Site</option>
+				<option value="date_reported">Start Date</option>
+				<option value="RTS">RTS</option>
+				<option value="reported_by">Logged by</option>
+				<option value="assigned_to">Assigned to</option>
+				<option value="priority">Priority</option>
+			</select>
+			
+			Ascending or Descending:
+			<select name="acdc" id="acdc">
+				<option value="ASC">Ascending</option>
+				<option value="DESC">Descending</option>
+			</select>
+			<br>
+
+			<div class="w3-container w3-margin w3-text-orange">
+			<button class="btn" type="submit"><i class="fa fa-cogs"></i> Get Faults</button>
+			</div>
+		</form>	
+	</div><br>
+</div>
+<div class="w3-card-4">
+	<iframe name="fault_frame" id="fault_frame" height="1400px" width="100%"></iframe>
+</div>
+	
+  </body>
+</html>
+
+
+
+
+
+
